@@ -158,6 +158,14 @@ export default function Social() {
                                         <ListItemText primary="Instagram" />
                                     </ListItem>
                                 </a>
+                                <a href="https://github.com/derekclair/saltlakecityfightingcovid" className={classes.noStyleLink} target="_window">
+                                    <ListItem style={{ width: '100%' }} button>
+                                        <ListItemAvatar>
+                                            <Avatar src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
+                                        </ListItemAvatar>
+                                        <ListItemText primary="GitHub" />
+                                    </ListItem>
+                                </a>
                             </List>
                         </Paper>
                     </Grid>
