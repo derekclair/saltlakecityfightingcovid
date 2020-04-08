@@ -119,6 +119,10 @@ const useStyles = makeStyles((theme) => ({
         padding: '20px'
     }
 }));
+const iframe = '<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeIhl24o461u8Lu9rbpuevYzG9_MeIEZwJaHHooXlT9Rrx1Cw/viewform?embedded=true" width="100%" height="812" frameborder="0" marginheight="10" marginwidth="10">Loading…</iframe>';
+const googleFormIframe = () => ({
+    __html: iframe
+})
 
 export default function Social() {
     const classes = useStyles();
@@ -130,11 +134,22 @@ export default function Social() {
             <Container maxWidth="lg" className={classes.container}>
                 <Grid container spacing={3}>
                     <Grid item xs={12} md={8} lg={9}>
-                            <Paper>
-                                <Grow in={true}>
-                                    <YouTube videoId="sbEj7M3aZIg" className={classes.fullWidthVid} />
-                                </Grow>
-                            </Paper>
+                        <Paper>
+                            <Grow in={true}>
+                                <div style={{padding: '20px'}}>
+                                    <div dangerouslySetInnerHTML={googleFormIframe()} />
+                                </div>
+                            </Grow>
+                        </Paper>
+                    </Grid>
+                </Grid>
+                <Grid container spacing={3}>
+                    <Grid item xs={12} md={8} lg={9}>
+                        <Paper>
+                            <Grow in={true}>
+                                <YouTube videoId="sbEj7M3aZIg" className={classes.fullWidthVid} />
+                            </Grow>
+                        </Paper>
                     </Grid>
                 </Grid>
                 <Grid container spacing={3}>
