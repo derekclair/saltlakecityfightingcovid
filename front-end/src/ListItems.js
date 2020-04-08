@@ -9,22 +9,34 @@ import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+import { makeStyles } from '@material-ui/core/styles';
 
-export const mainListItems = (
-  <div>
-    <ListItem button>
-      <ListItemIcon>
-        <DashboardIcon />
-      </ListItemIcon>
-      <ListItemText primary="Dashboard" />
-    </ListItem>
-    {/* <ListItem button>
-      <ListItemIcon>
-        <ShoppingCartIcon />
-      </ListItemIcon>
-      <ListItemText primary="Orders" />
-    </ListItem>
-    <ListItem button>
+import {
+    Link
+} from "react-router-dom";
+const useStyles = makeStyles((theme) => ({
+    noStyleLink: {
+        color: 'inherit', 
+        textDecoration: 'inherit'
+    }
+}))
+export const MainListItems = () => {
+    const classes = useStyles()
+    return (
+        <div>
+            <ListItem button component={Link} to="/" className={classes.noStyleLink}>
+                <ListItemIcon>
+                    <PeopleIcon />
+                </ListItemIcon>
+                <ListItemText primary="Social" />
+            </ListItem>
+            <ListItem button component={Link} to="/by-the-numbers" className={classes.noStyleLink}>
+                <ListItemIcon>
+                    <DashboardIcon />
+                </ListItemIcon>
+                <ListItemText primary="By The Numbers" />
+            </ListItem>
+            {/* <ListItem button>
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
@@ -42,12 +54,13 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Integrations" />
     </ListItem> */}
-  </div>
-);
+        </div>
+    );
+}
 
 export const secondaryListItems = (
-  <div>
-    {/* <ListSubheader inset>Saved reports</ListSubheader>
+    <div>
+        {/* <ListSubheader inset>Saved reports</ListSubheader>
     <ListItem button>
       <ListItemIcon>
         <AssignmentIcon />
@@ -66,5 +79,5 @@ export const secondaryListItems = (
       </ListItemIcon>
       <ListItemText primary="Year-end sale" />
     </ListItem> */}
-  </div>
+    </div>
 );
