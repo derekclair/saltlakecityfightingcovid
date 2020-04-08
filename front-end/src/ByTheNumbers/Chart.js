@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useTheme } from '@material-ui/core/styles';
 import { LineChart, Line, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
 import Title from './Title';
+import { Grow } from '@material-ui/core';
 
 // Generate Sales Data
 function createData(time, amount) {
@@ -21,7 +22,7 @@ export default function Chart() {
             const utah = data.filter(({ state }) => state === 'UT').sort((a, b) => a.date - b.date);
             const newTestedData = [];
             const newTestedPositiveData = [];
-            const newHospitalized= [];
+            const newHospitalized = [];
             const newDeaths = [];
             const newRecovered = [];
             utah.forEach(day => {
@@ -46,119 +47,129 @@ export default function Chart() {
         <React.Fragment>
             <Title>Utah COVID by the numbers</Title>
             <ResponsiveContainer>
-                <LineChart
-                    data={testedData}
-                    margin={{
-                        top: 16,
-                        right: 16,
-                        bottom: 0,
-                        left: 24,
-                    }}
-                >
-                    <XAxis dataKey="time" stroke={theme.palette.text.secondary} />
-                    <YAxis stroke={theme.palette.text.secondary}>
-                        <Label
-                            angle={270}
-                            position="left"
-                            style={{ textAnchor: 'middle', fill: theme.palette.text.primary }}
-                        >
-                            Tested
+                <Grow in={testedData.length}>
+                    <LineChart
+                        data={testedData}
+                        margin={{
+                            top: 16,
+                            right: 16,
+                            bottom: 0,
+                            left: 24,
+                        }}
+                    >
+                        <XAxis dataKey="time" stroke={theme.palette.text.secondary} />
+                        <YAxis stroke={theme.palette.text.secondary}>
+                            <Label
+                                angle={270}
+                                position="left"
+                                style={{ textAnchor: 'middle', fill: theme.palette.text.primary }}
+                            >
+                                Tested
             </Label>
-                    </YAxis>
-                    <Line type="monotone" dataKey="amount" stroke={theme.palette.primary.main} dot={false} />
-                </LineChart>
+                        </YAxis>
+                        <Line type="monotone" dataKey="amount" stroke={theme.palette.primary.main} dot={false} />
+                    </LineChart>
+                </Grow>
             </ResponsiveContainer>
             <ResponsiveContainer>
-                <LineChart
-                    data={testedPositiveData}
-                    margin={{
-                        top: 16,
-                        right: 16,
-                        bottom: 0,
-                        left: 24,
-                    }}
-                >
-                    <XAxis dataKey="time" stroke={theme.palette.text.secondary} />
-                    <YAxis stroke={theme.palette.text.secondary}>
-                        <Label
-                            angle={270}
-                            position="left"
-                            style={{ textAnchor: 'middle', fill: theme.palette.text.primary }}
-                        >
-                            Tested Positive
+                <Grow in={testedPositiveData.length}>
+                    <LineChart
+                        data={testedPositiveData}
+                        margin={{
+                            top: 16,
+                            right: 16,
+                            bottom: 0,
+                            left: 24,
+                        }}
+                    >
+                        <XAxis dataKey="time" stroke={theme.palette.text.secondary} />
+                        <YAxis stroke={theme.palette.text.secondary}>
+                            <Label
+                                angle={270}
+                                position="left"
+                                style={{ textAnchor: 'middle', fill: theme.palette.text.primary }}
+                            >
+                                Tested Positive
             </Label>
-                    </YAxis>
-                    <Line type="monotone" dataKey="amount" stroke={theme.palette.primary.main} dot={false} />
-                </LineChart>
+                        </YAxis>
+                        <Line type="monotone" dataKey="amount" stroke={theme.palette.primary.main} dot={false} />
+                    </LineChart>
+                </Grow>
             </ResponsiveContainer>
             <ResponsiveContainer>
-                <LineChart
-                    data={hospitalized}
-                    margin={{
-                        top: 16,
-                        right: 16,
-                        bottom: 0,
-                        left: 24,
-                    }}
-                >
-                    <XAxis dataKey="time" stroke={theme.palette.text.secondary} />
-                    <YAxis stroke={theme.palette.text.secondary}>
-                        <Label
-                            angle={270}
-                            position="left"
-                            style={{ textAnchor: 'middle', fill: theme.palette.text.primary }}
-                        >
-                            Hospitalized
+                <Grow in={hospitalized.length}>
+                    <LineChart
+                        data={hospitalized}
+                        margin={{
+                            top: 16,
+                            right: 16,
+                            bottom: 0,
+                            left: 24,
+                        }}
+                    >
+                        <XAxis dataKey="time" stroke={theme.palette.text.secondary} />
+                        <YAxis stroke={theme.palette.text.secondary}>
+                            <Label
+                                angle={270}
+                                position="left"
+                                style={{ textAnchor: 'middle', fill: theme.palette.text.primary }}
+                            >
+                                Hospitalized
             </Label>
-                    </YAxis>
-                    <Line type="monotone" dataKey="amount" stroke={theme.palette.primary.main} dot={false} />
-                </LineChart>
+                        </YAxis>
+                        <Line type="monotone" dataKey="amount" stroke={theme.palette.primary.main} dot={false} />
+                    </LineChart>
+                </Grow>
             </ResponsiveContainer>
             <ResponsiveContainer>
-                <LineChart
-                    data={deaths}
-                    margin={{
-                        top: 16,
-                        right: 16,
-                        bottom: 0,
-                        left: 24,
-                    }}
-                >
-                    <XAxis dataKey="time" stroke={theme.palette.text.secondary} />
-                    <YAxis stroke={theme.palette.text.secondary}>
-                        <Label
-                            angle={270}
-                            position="left"
-                            style={{ textAnchor: 'middle', fill: theme.palette.text.primary }}
-                        >
-                            Deaths
+                <Grow in={deaths.length}>
+                    <LineChart
+                        data={deaths}
+                        margin={{
+                            top: 16,
+                            right: 16,
+                            bottom: 0,
+                            left: 24,
+                        }}
+                    >
+                        <XAxis dataKey="time" stroke={theme.palette.text.secondary} />
+                        <YAxis stroke={theme.palette.text.secondary}>
+                            <Label
+                                angle={270}
+                                position="left"
+                                style={{ textAnchor: 'middle', fill: theme.palette.text.primary }}
+                            >
+                                Deaths
             </Label>
-                    </YAxis>
-                    <Line type="monotone" dataKey="amount" stroke={theme.palette.primary.main} dot={false} />
-                </LineChart>
+                        </YAxis>
+                        <Line type="monotone" dataKey="amount" stroke={theme.palette.primary.main} dot={false} />
+                    </LineChart>
+                </Grow>
             </ResponsiveContainer>
             <ResponsiveContainer>
-                <LineChart
-                    data={recovered}
-                    margin={{
-                        top: 16,
-                        right: 16,
-                        bottom: 0,
-                        left: 24,
-                    }}
-                >
-                    <XAxis dataKey="time" stroke={theme.palette.text.secondary} />
-                    <YAxis stroke={theme.palette.text.secondary}>
-                        <Label
-                            angle={270}
-                            position="left"
-                            style={{ textAnchor: 'middle', fill: theme.palette.text.primary }}
-                        >
-                            Recovered
+                <Grow in={recovered.length}>
+                    <LineChart
+                        data={recovered}
+                        margin={{
+                            top: 16,
+                            right: 16,
+                            bottom: 0,
+                            left: 24,
+                        }}
+                    >
+                        <XAxis dataKey="time" stroke={theme.palette.text.secondary} />
+                        <YAxis stroke={theme.palette.text.secondary}>
+                            <Label
+                                angle={270}
+                                position="left"
+                                style={{ textAnchor: 'middle', fill: theme.palette.text.primary }}
+                            >
+                                Recovered
             </Label>
-                    </YAxis>
-                    <Line type="monotone" dataKey="amount" stroke={theme.palette.primary.main} dot={false} />
-                </LineChart>
+                        </YAxis>
+                        <Line type="monotone" dataKey="amount" stroke={theme.palette.primary.main} dot={false} />
+                    </LineChart>
+                </Grow>
             </ResponsiveContainer>
         </React.Fragment>
     );

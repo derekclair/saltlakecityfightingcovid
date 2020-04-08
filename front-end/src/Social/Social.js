@@ -16,6 +16,7 @@ import Avatar from '@material-ui/core/Avatar';
 import ImageIcon from '@material-ui/icons/Image';
 import WorkIcon from '@material-ui/icons/Work';
 import BeachAccessIcon from '@material-ui/icons/BeachAccess';
+import { Grow } from '@material-ui/core';
 
 function Copyright() {
     return (
@@ -112,7 +113,7 @@ const useStyles = makeStyles((theme) => ({
     //   },
 
     noStyleLink: {
-        color: 'inherit', 
+        color: 'inherit',
         textDecoration: 'inherit'
     }
 }));
@@ -130,41 +131,51 @@ export default function Social() {
                     <Grid item xs={12} md={8} lg={9}>
                         <Paper className={fixedHeightPaper}>
                             <List className={classes.root}>
-                                <ListItem style={{ width: '100%' }}>
-                                    <ListItemAvatar>
-                                        <Avatar src="https://a.slack-edge.com/80588/marketing/img/meta/slack_hash_256.png" />
-                                    </ListItemAvatar>
-                                    <ListItemText primary="Slack" secondary={<span><a href="https://saltlakecityf-a632658.slack.com" target="_window">Join The Workspace</a></span>} />
-                                </ListItem>
-                                <ListItem style={{ width: '100%' }}>
-                                    <ListItemAvatar>
-                                        <Avatar src="https://cdn2.iconfinder.com/data/icons/minimalism/512/twitter.png" />
-                                    </ListItemAvatar>
-                                    <ListItemText primary="Twitter" secondary={<span>With The Hash Tag <a href="https://twitter.com/hashtag/saltlakecityfightingcovid" target="_window">#saltlakecityfightingcovid</a> <br></br> and <a href="https://twitter.com/SLCFightsCovid" target="_window">@SLCFightsCovid</a></span>} />
-                                </ListItem>
-                                <a href="https://www.facebook.com/pg/SaltLakeCityFightingCOVID/about/?ref=page_internal" className={classes.noStyleLink} target="_window">
-                                    <ListItem style={{ width: '100%' }} button>
+                                <Grow in={true}>
+                                    <ListItem style={{ width: '100%' }}>
                                         <ListItemAvatar>
-                                            <Avatar src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-facebook-circle-512.png" />
+                                            <Avatar src="https://a.slack-edge.com/80588/marketing/img/meta/slack_hash_256.png" />
                                         </ListItemAvatar>
-                                        <ListItemText primary="Facebook" />
+                                        <ListItemText primary="Slack" secondary={<span><a href="https://saltlakecityf-a632658.slack.com" target="_window">Join The Workspace</a></span>} />
                                     </ListItem>
+                                </Grow>
+                                <Grow in={true}>
+                                    <ListItem style={{ width: '100%' }}>
+                                        <ListItemAvatar>
+                                            <Avatar src="https://cdn2.iconfinder.com/data/icons/minimalism/512/twitter.png" />
+                                        </ListItemAvatar>
+                                        <ListItemText primary="Twitter" secondary={<span>With The Hash Tag <a href="https://twitter.com/hashtag/saltlakecityfightingcovid" target="_window">#saltlakecityfightingcovid</a> <br></br> and <a href="https://twitter.com/SLCFightsCovid" target="_window">@SLCFightsCovid</a></span>} />
+                                    </ListItem>
+                                </Grow>
+                                <a href="https://www.facebook.com/pg/SaltLakeCityFightingCOVID/about/?ref=page_internal" className={classes.noStyleLink} target="_window">
+                                    <Grow in={true}>
+                                        <ListItem style={{ width: '100%' }} button>
+                                            <ListItemAvatar>
+                                                <Avatar src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-facebook-circle-512.png" />
+                                            </ListItemAvatar>
+                                            <ListItemText primary="Facebook" />
+                                        </ListItem>
+                                    </Grow>
                                 </a>
                                 <a href="https://www.instagram.com/saltlakecityfightingcovid/" className={classes.noStyleLink} target="_window">
-                                    <ListItem style={{ width: '100%' }} button>
-                                        <ListItemAvatar>
-                                            <Avatar src="https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png?w=300" />
-                                        </ListItemAvatar>
-                                        <ListItemText primary="Instagram" />
-                                    </ListItem>
+                                    <Grow in={true}>
+                                        <ListItem style={{ width: '100%' }} button>
+                                            <ListItemAvatar>
+                                                <Avatar src="https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png?w=300" />
+                                            </ListItemAvatar>
+                                            <ListItemText primary="Instagram" />
+                                        </ListItem>
+                                    </Grow>
                                 </a>
                                 <a href="https://github.com/derekclair/saltlakecityfightingcovid" className={classes.noStyleLink} target="_window">
-                                    <ListItem style={{ width: '100%' }} button>
-                                        <ListItemAvatar>
-                                            <Avatar src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
-                                        </ListItemAvatar>
-                                        <ListItemText primary="GitHub" />
-                                    </ListItem>
+                                    <Grow in={true}>
+                                        <ListItem style={{ width: '100%' }} button>
+                                            <ListItemAvatar>
+                                                <Avatar src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
+                                            </ListItemAvatar>
+                                            <ListItemText primary="GitHub" />
+                                        </ListItem>
+                                    </Grow>
                                 </a>
                             </List>
                         </Paper>
