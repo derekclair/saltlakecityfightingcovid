@@ -13,9 +13,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
-import ImageIcon from '@material-ui/icons/Image';
-import WorkIcon from '@material-ui/icons/Work';
-import BeachAccessIcon from '@material-ui/icons/BeachAccess';
+import YouTube from 'react-youtube';
 import { Grow } from '@material-ui/core';
 
 function Copyright() {
@@ -115,6 +113,10 @@ const useStyles = makeStyles((theme) => ({
     noStyleLink: {
         color: 'inherit',
         textDecoration: 'inherit'
+    },
+    fullWidthVid: {
+        width: '100%',
+        padding: '20px'
     }
 }));
 
@@ -126,6 +128,15 @@ export default function Social() {
         <main className={classes.content}>
             <div className={classes.appBarSpacer} />
             <Container maxWidth="lg" className={classes.container}>
+                <Grid container spacing={3}>
+                    <Grid item xs={12} md={8} lg={9}>
+                            <Paper>
+                                <Grow in={true}>
+                                    <YouTube videoId="sbEj7M3aZIg" className={classes.fullWidthVid} />
+                                </Grow>
+                            </Paper>
+                    </Grid>
+                </Grid>
                 <Grid container spacing={3}>
                     {/* Chart */}
                     <Grid item xs={12} md={8} lg={9}>
