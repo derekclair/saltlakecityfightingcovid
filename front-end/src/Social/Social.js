@@ -1,7 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
-import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
@@ -15,19 +14,6 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import YouTube from 'react-youtube';
 import { Grow } from '@material-ui/core';
-
-function Copyright() {
-    return (
-        <Typography variant="body2" color="textSecondary" align="center">
-            {'Copyright © '}
-            <Link color="inherit" href="https://SaltLakeCityFightingCovid.com/">
-                Salt Lake City Fighting Covid
-      </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
 
 const drawerWidth = 240;
 
@@ -90,7 +76,6 @@ const useStyles = makeStyles((theme) => ({
             width: theme.spacing(9),
         },
     },
-    appBarSpacer: theme.mixins.toolbar,
     content: {
         flexGrow: 1,
         height: '100vh',
@@ -128,89 +113,81 @@ export default function Social() {
     const classes = useStyles();
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
-    return (
-        <main className={classes.content}>
-            <div className={classes.appBarSpacer} />
-            <Container maxWidth="lg" className={classes.container}>
-                <Grid container spacing={3}>
-                    <Grid item xs={12} md={8} lg={9}>
-                        <Paper>
+    return (<>
+        <Grid container spacing={3}>
+            <Grid item xs={12} md={8} lg={9}>
+                <Paper>
+                    <Grow in={true}>
+                        <Grid item xs={12} md={3} lg={3}>
+                        </Grid>
+                    </Grow>
+                </Paper>
+            </Grid>
+        </Grid>
+        <Grid container spacing={3}>
+            {/* Chart */}
+            <Grid item xs={12} md={8} lg={9}>
+                <Paper className={fixedHeightPaper}>
+                    <List className={classes.root}>
+                        <Grow in={true}>
+                            <ListItem style={{ width: '100%' }}>
+                                <ListItemAvatar>
+                                    <Avatar src="https://a.slack-edge.com/80588/marketing/img/meta/slack_hash_256.png" />
+                                </ListItemAvatar>
+                                <ListItemText primary="Slack" secondary={<span><a href="https://saltlakecityf-a632658.slack.com" target="_window">Join The Workspace</a></span>} />
+                            </ListItem>
+                        </Grow>
+                        <Grow in={true}>
+                            <ListItem style={{ width: '100%' }}>
+                                <ListItemAvatar>
+                                    <Avatar src="https://cdn2.iconfinder.com/data/icons/minimalism/512/twitter.png" />
+                                </ListItemAvatar>
+                                <ListItemText primary="Twitter" secondary={<span>With The Hash Tag <a href="https://twitter.com/hashtag/saltlakecityfightingcovid" target="_window">#saltlakecityfightingcovid</a> <br></br> and <a href="https://twitter.com/SLCFightsCovid" target="_window">@SLCFightsCovid</a></span>} />
+                            </ListItem>
+                        </Grow>
+                        <a href="https://www.facebook.com/pg/SaltLakeCityFightingCOVID/about/?ref=page_internal" className={classes.noStyleLink} target="_window">
                             <Grow in={true}>
-                                <div style={{padding: '20px'}}>
-                                    <div dangerouslySetInnerHTML={googleFormIframe()} />
-                                </div>
+                                <ListItem style={{ width: '100%' }} button>
+                                    <ListItemAvatar>
+                                        <Avatar src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-facebook-circle-512.png" />
+                                    </ListItemAvatar>
+                                    <ListItemText primary="Facebook" />
+                                </ListItem>
                             </Grow>
-                        </Paper>
-                    </Grid>
-                </Grid>
-                <Grid container spacing={3}>
-                    <Grid item xs={12} md={8} lg={9}>
-                        <Paper>
+                        </a>
+                        <a href="https://www.instagram.com/saltlakecityfightingcovid/" className={classes.noStyleLink} target="_window">
                             <Grow in={true}>
-                                <YouTube videoId="sbEj7M3aZIg" className={classes.fullWidthVid} />
+                                <ListItem style={{ width: '100%' }} button>
+                                    <ListItemAvatar>
+                                        <Avatar src="https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png?w=300" />
+                                    </ListItemAvatar>
+                                    <ListItemText primary="Instagram" />
+                                </ListItem>
                             </Grow>
-                        </Paper>
-                    </Grid>
-                </Grid>
-                <Grid container spacing={3}>
-                    {/* Chart */}
-                    <Grid item xs={12} md={8} lg={9}>
-                        <Paper className={fixedHeightPaper}>
-                            <List className={classes.root}>
-                                <Grow in={true}>
-                                    <ListItem style={{ width: '100%' }}>
-                                        <ListItemAvatar>
-                                            <Avatar src="https://a.slack-edge.com/80588/marketing/img/meta/slack_hash_256.png" />
-                                        </ListItemAvatar>
-                                        <ListItemText primary="Slack" secondary={<span><a href="https://saltlakecityf-a632658.slack.com" target="_window">Join The Workspace</a></span>} />
-                                    </ListItem>
-                                </Grow>
-                                <Grow in={true}>
-                                    <ListItem style={{ width: '100%' }}>
-                                        <ListItemAvatar>
-                                            <Avatar src="https://cdn2.iconfinder.com/data/icons/minimalism/512/twitter.png" />
-                                        </ListItemAvatar>
-                                        <ListItemText primary="Twitter" secondary={<span>With The Hash Tag <a href="https://twitter.com/hashtag/saltlakecityfightingcovid" target="_window">#saltlakecityfightingcovid</a> <br></br> and <a href="https://twitter.com/SLCFightsCovid" target="_window">@SLCFightsCovid</a></span>} />
-                                    </ListItem>
-                                </Grow>
-                                <a href="https://www.facebook.com/pg/SaltLakeCityFightingCOVID/about/?ref=page_internal" className={classes.noStyleLink} target="_window">
-                                    <Grow in={true}>
-                                        <ListItem style={{ width: '100%' }} button>
-                                            <ListItemAvatar>
-                                                <Avatar src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-facebook-circle-512.png" />
-                                            </ListItemAvatar>
-                                            <ListItemText primary="Facebook" />
-                                        </ListItem>
-                                    </Grow>
-                                </a>
-                                <a href="https://www.instagram.com/saltlakecityfightingcovid/" className={classes.noStyleLink} target="_window">
-                                    <Grow in={true}>
-                                        <ListItem style={{ width: '100%' }} button>
-                                            <ListItemAvatar>
-                                                <Avatar src="https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png?w=300" />
-                                            </ListItemAvatar>
-                                            <ListItemText primary="Instagram" />
-                                        </ListItem>
-                                    </Grow>
-                                </a>
-                                <a href="https://github.com/derekclair/saltlakecityfightingcovid" className={classes.noStyleLink} target="_window">
-                                    <Grow in={true}>
-                                        <ListItem style={{ width: '100%' }} button>
-                                            <ListItemAvatar>
-                                                <Avatar src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
-                                            </ListItemAvatar>
-                                            <ListItemText primary="GitHub" />
-                                        </ListItem>
-                                    </Grow>
-                                </a>
-                            </List>
-                        </Paper>
-                    </Grid>
-                </Grid>
-                <Box pt={4}>
-                    <Copyright />
-                </Box>
-            </Container>
-        </main>
+                        </a>
+                        <a href="https://github.com/derekclair/saltlakecityfightingcovid" className={classes.noStyleLink} target="_window">
+                            <Grow in={true}>
+                                <ListItem style={{ width: '100%' }} button>
+                                    <ListItemAvatar>
+                                        <Avatar src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
+                                    </ListItemAvatar>
+                                    <ListItemText primary="GitHub" />
+                                </ListItem>
+                            </Grow>
+                        </a>
+                    </List>
+                </Paper>
+            </Grid>
+        </Grid>
+        <Grid container spacing={3}>
+            <Grid item xs={12} md={8} lg={9}>
+                <Paper>
+                    <Grow in={true}>
+                        <YouTube videoId="sbEj7M3aZIg" className={classes.fullWidthVid} />
+                    </Grow>
+                </Paper>
+            </Grid>
+        </Grid>
+    </>
     );
 }

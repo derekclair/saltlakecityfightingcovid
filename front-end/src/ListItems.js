@@ -4,11 +4,9 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import ContactMail from '@material-ui/icons/ContactMail';
+import Filter3 from '@material-ui/icons/Filter3';
 import PeopleIcon from '@material-ui/icons/People';
-import BarChartIcon from '@material-ui/icons/BarChart';
-import LayersIcon from '@material-ui/icons/Layers';
-import AssignmentIcon from '@material-ui/icons/Assignment';
 import { makeStyles } from '@material-ui/core/styles';
 
 import {
@@ -30,30 +28,24 @@ export const MainListItems = () => {
                 </ListItemIcon>
                 <ListItemText primary="Social" />
             </ListItem>
+            <ListItem button component={Link} to="/3d-printing-form" className={classes.noStyleLink}>
+                <ListItemIcon>
+                    <Filter3 />
+                </ListItemIcon>
+                <ListItemText primary="Help With 3d Printing" />
+            </ListItem>
+            <ListItem button component={Link} to="/volunteer-form" className={classes.noStyleLink}>
+                <ListItemIcon>
+                    <ContactMail />
+                </ListItemIcon>
+                <ListItemText primary="Volunteer" />
+            </ListItem>
             <ListItem button component={Link} to="/by-the-numbers" className={classes.noStyleLink}>
                 <ListItemIcon>
                     <DashboardIcon />
                 </ListItemIcon>
                 <ListItemText primary="By The Numbers" />
             </ListItem>
-            {/* <ListItem button>
-      <ListItemIcon>
-        <PeopleIcon />
-      </ListItemIcon>
-      <ListItemText primary="Customers" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <BarChartIcon />
-      </ListItemIcon>
-      <ListItemText primary="Reports" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <LayersIcon />
-      </ListItemIcon>
-      <ListItemText primary="Integrations" />
-    </ListItem> */}
         </div>
     );
 }
